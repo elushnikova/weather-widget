@@ -1,6 +1,5 @@
 <template>
   <div id="weather-widget">
-    <img alt="Vue logo" src="./assets/logo.png" />
     <CityCard city="Saint Petersburg" />
   </div>
 </template>
