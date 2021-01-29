@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ city }}
+    {{ item.name }}
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "CityCard",
   props: {
-    city: { type: String, required: true }
+    item: { type: Object, required: true }
   }
 });
 </script>

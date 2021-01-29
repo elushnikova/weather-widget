@@ -1,16 +1,16 @@
 import { createLocalVue, shallowMount } from "@vue/test-utils";
 import CityCard from "@/components/CityCard.vue";
+import city from "./__mocks__/city";
 
 describe("CityCard.vue", () => {
-  it("renders props.city when passed", () => {
-    const city = "Moscow";
+  it("renders props.item when passed", () => {
     const localVue = createLocalVue();
     const wrapper = shallowMount(CityCard, {
       localVue,
-      propsData: { city }
+      propsData: { item: city },
     });
-    
-    expect(wrapper.text()).toMatch(city);
+
+    expect(wrapper.vm.$props.item).toEqual(city);
     wrapper.destroy();
   });
 });
