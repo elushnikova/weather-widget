@@ -1,8 +1,8 @@
 import Vue from "vue";
-import App from "./App.vue";
+import WeatherWidget from "./WeatherWidget.vue";
 
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App)
-}).$mount("#app");
+  render: h => h(WeatherWidget)
+}).$mount("#weather-widget");

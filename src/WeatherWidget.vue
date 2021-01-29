@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="weather-widget">
     <img alt="Vue logo" src="./assets/logo.png" />
     <CityCard city="Saint Petersburg" />
   </div>
@@ -10,7 +10,7 @@ import Vue from "vue";
 import CityCard from "./components/CityCard.vue";
 
 export default Vue.extend({
-  name: "App",
+  name: "WeatherWidget",
   components: {
     CityCard
   }
@@ -18,7 +18,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-#app {
+#weather-widget {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
