@@ -23,6 +23,12 @@ npm run build
 
 ### Run your unit tests
 ```
+npm run test
+```
+
+or
+
+```
 npm run test:unit
 ```
 
