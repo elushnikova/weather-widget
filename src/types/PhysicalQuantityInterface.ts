@@ -1,5 +1,5 @@
 interface PhysicalQuantityInterface {
-  unit: string;
+  unit: any;
   value: number;
   toString(): string;
 }

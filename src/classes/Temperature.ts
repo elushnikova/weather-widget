@@ -1,16 +1,11 @@
+import PhysicalQuantity from "@/classes/PhysicalQuantity";
 import TemperatureInterface from "@/types/TemperatureInterface";
 import TemperatureUnit from "@/types/TemperatureUnit";
 
-class Temperature implements TemperatureInterface {
-  unit = TemperatureUnit.Kelvin;
-  value: number;
-
-  constructor(value: number) {
-    this.value = Number(value.toFixed(2));
-  }
-
-  toString() {
-    return this.value + this.unit;
+class Temperature extends PhysicalQuantity implements TemperatureInterface {
+  constructor(value: number, unit: TemperatureUnit) {
+    const roundedValue = Number(value.toFixed(2));
+    super(roundedValue, unit);
   }
 }
 
