@@ -1,4 +1,4 @@
-import PhysicalQuantityInterface from "@/types/PhysicalQuantityInterface";
+import PhysicalQuantityInterface from "@/types/interfaces/PhysicalQuantityInterface";
 import SpeedUnit from "@/types/units/SpeedUnit";
 
 interface WindSpeedInterface extends PhysicalQuantityInterface {

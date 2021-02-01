@@ -1,5 +1,5 @@
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
-import PressureInterface from "@/types/PressureInterface";
+import PressureInterface from "@/types/interfaces/PressureInterface";
 import PressureUnit from "@/types/units/PressureUnit";
 
 class Pressure extends PhysicalQuantity implements PressureInterface {
