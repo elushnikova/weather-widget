@@ -5,7 +5,7 @@ import HumidityUnit from "@/types/units/HumidityUnit";
 describe("Humidity", () => {
   let h: Humidity;
 
-  beforeAll(() => {
+  beforeEach(() => {
     h = new Humidity(10.12);
   });
 
@@ -23,11 +23,13 @@ describe("Humidity", () => {
     expect(invalidCall).toThrow(ErrorText.InvalidHumidity);
   });
 
-  it("has value rounded to zero decimal places", () => {
+  it("value can be rounded to integer", () => {
+    h.roundToInteger();
     expect(h.value).toBe(10);
   });
 
   it("can be converted to string", () => {
+    h.roundToInteger();
     expect(h.toString()).toBe("10%");
   });
 });

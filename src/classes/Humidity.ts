@@ -13,8 +13,7 @@ class Humidity extends PhysicalQuantity implements HumidityInterface {
       throw new Error(ErrorText.InvalidHumidity);
     }
 
-    const roundedValue = Number(value.toFixed(0));
-    super(roundedValue, HumidityUnit.Percentage);
+    super(value, HumidityUnit.Percentage);
   }
 }
 

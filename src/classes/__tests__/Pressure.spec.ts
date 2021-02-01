@@ -4,7 +4,7 @@ import PressureUnit from "@/types/units/PressureUnit";
 describe("Pressure", () => {
   let p: Pressure;
 
-  beforeAll(() => {
+  beforeEach(() => {
     p = new Pressure(980.12);
   });
 
@@ -12,11 +12,13 @@ describe("Pressure", () => {
     expect(p.unit).toBe(PressureUnit.HectoPascal);
   });
 
-  it("has value rounded to zero decimal places", () => {
+  it("value can be rounded to integer", () => {
+    p.roundToInteger();
     expect(p.value).toBe(980);
   });
 
   it("can be converted to string", () => {
+    p.roundToInteger();
     expect(p.toString()).toBe("980hPa");
   });
 });

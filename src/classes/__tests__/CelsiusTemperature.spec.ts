@@ -4,7 +4,7 @@ import TemperatureUnit from "@/types/units/TemperatureUnit";
 describe("CelsiusTemperature", () => {
   let t: CelsiusTemperature;
 
-  beforeAll(() => {
+  beforeEach(() => {
     t = new CelsiusTemperature(300);
   });
 
@@ -18,5 +18,10 @@ describe("CelsiusTemperature", () => {
 
   it("can be converted to string", () => {
     expect(t.toString()).toBe("26.85°C");
+  });
+
+  it("value can be rounded to integer", () => {
+    t.roundToInteger();
+    expect(t.value).toBe(27);
   });
 });

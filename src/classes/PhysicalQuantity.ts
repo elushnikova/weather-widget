@@ -12,6 +12,10 @@ abstract class PhysicalQuantity implements PhysicalQuantityInterface {
   toString() {
     return this.value + this.unit;
   }
+
+  roundToInteger(): void {
+    this.value = Number(this.value.toFixed(0));
+  }
 }
 
 export default PhysicalQuantity;

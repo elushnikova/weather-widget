@@ -4,8 +4,7 @@ import PressureUnit from "@/types/units/PressureUnit";
 
 class Pressure extends PhysicalQuantity implements PressureInterface {
   constructor(value: number) {
-    const roundedValue = Number(value.toFixed(0));
-    super(roundedValue, PressureUnit.HectoPascal);
+    super(value, PressureUnit.HectoPascal);
   }
 }
 
