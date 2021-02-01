@@ -1,9 +1,8 @@
+import PhysicalQuantityInterface from "@/types/PhysicalQuantityInterface";
 import SpeedUnit from "@/types/SpeedUnit";
 
-interface WindSpeedInterface {
+interface WindSpeedInterface extends PhysicalQuantityInterface {
   unit: SpeedUnit;
-  value: number;
-  toString(): string;
   toBeaufort(): string;
 }
 

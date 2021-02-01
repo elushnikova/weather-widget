@@ -1,9 +1,8 @@
+import PhysicalQuantityInterface from "@/types/PhysicalQuantityInterface";
 import TemperatureUnit from "@/types/TemperatureUnit";
 
-interface TemperatureInterface {
+interface TemperatureInterface extends PhysicalQuantityInterface {
   unit: TemperatureUnit;
-  value: number;
-  toString(): string;
 }
 
 export default TemperatureInterface;
