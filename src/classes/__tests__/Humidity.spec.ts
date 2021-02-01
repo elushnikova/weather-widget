@@ -23,13 +23,13 @@ describe("Humidity", () => {
     expect(invalidCall).toThrow(ErrorText.InvalidHumidity);
   });
 
-  it("value can be rounded to integer", () => {
-    h.roundToInteger();
+  it("can round value to integer", () => {
+    h.round(0);
     expect(h.value).toBe(10);
   });
 
   it("can be converted to string", () => {
-    h.roundToInteger();
+    h.round(0);
     expect(h.toString()).toBe("10%");
   });
 });

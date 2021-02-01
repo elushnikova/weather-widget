@@ -12,13 +12,13 @@ describe("Pressure", () => {
     expect(p.unit).toBe(PressureUnit.HectoPascal);
   });
 
-  it("value can be rounded to integer", () => {
-    p.roundToInteger();
+  it("can round value to integer", () => {
+    p.round(0)
     expect(p.value).toBe(980);
   });
 
   it("can be converted to string", () => {
-    p.roundToInteger();
+    p.round(0)
     expect(p.toString()).toBe("980hPa");
   });
 });

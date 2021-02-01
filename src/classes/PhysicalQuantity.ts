@@ -13,8 +13,9 @@ abstract class PhysicalQuantity implements PhysicalQuantityInterface {
     return this.value + this.unit;
   }
 
-  roundToInteger(): void {
-    this.value = Number(this.value.toFixed(0));
+  round(decimalPlaces: number) {
+    const fixedValue = this.value.toFixed(decimalPlaces);
+    this.value = Number(fixedValue);
   }
 }
 

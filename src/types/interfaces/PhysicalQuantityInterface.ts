@@ -2,7 +2,7 @@ interface PhysicalQuantityInterface {
   unit: any;
   value: number;
   toString(): string;
-  roundToInteger(): void;
+  round(decimalPlaces: number): void;
 }
 
 export default PhysicalQuantityInterface;

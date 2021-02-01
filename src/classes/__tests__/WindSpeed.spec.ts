@@ -5,7 +5,7 @@ import SpeedUnit from "@/types/units/SpeedUnit";
 describe("WindSpeed", () => {
   let w: WindSpeed;
 
-  beforeAll(() => {
+  beforeEach(() => {
     w = new WindSpeed(8.123456);
   });
 
@@ -18,11 +18,13 @@ describe("WindSpeed", () => {
     expect(invalidCall).toThrow(ErrorText.InvalidWindSpeed);
   });
 
-  it("has value rounded to one decimal place", () => {
+  it("can round value to one decimal place", () => {
+    w.round(1);
     expect(w.value).toBe(8.1);
   });
 
   it("can be converted to string", () => {
+    w.round(1);
     expect(w.toString()).toBe("8.1m/s");
   });
 

@@ -4,8 +4,7 @@ import TemperatureUnit from "@/types/units/TemperatureUnit";
 
 class Temperature extends PhysicalQuantity implements TemperatureInterface {
   constructor(value: number, unit: TemperatureUnit) {
-    const roundedValue = Number(value.toFixed(2));
-    super(roundedValue, unit);
+    super(value, unit);
   }
 }
 

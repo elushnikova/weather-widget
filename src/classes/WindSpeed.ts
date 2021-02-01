@@ -9,9 +9,8 @@ class WindSpeed extends PhysicalQuantity implements WindSpeedInterface {
     if (value < 0) {
       throw new Error(ErrorText.InvalidWindSpeed);
     }
-
-    const roundedValue = Number(value.toFixed(1));
-    super(roundedValue, SpeedUnit.MetrePerSecond);
+    
+    super(value, SpeedUnit.MetrePerSecond);
   }
 
   toBeaufort() {
