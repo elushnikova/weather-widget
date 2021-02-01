@@ -1,6 +1,6 @@
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
 import TemperatureInterface from "@/types/TemperatureInterface";
-import TemperatureUnit from "@/types/TemperatureUnit";
+import TemperatureUnit from "@/types/units/TemperatureUnit";
 
 class Temperature extends PhysicalQuantity implements TemperatureInterface {
   constructor(value: number, unit: TemperatureUnit) {

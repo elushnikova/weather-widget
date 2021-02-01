@@ -1,6 +1,6 @@
 import WindSpeed from "@/classes/WindSpeed";
 import ErrorText from "@/types/ErrorText";
-import SpeedUnit from "@/types/SpeedUnit";
+import SpeedUnit from "@/types/units/SpeedUnit";
 
 describe("WindSpeed", () => {
   let w: WindSpeed;

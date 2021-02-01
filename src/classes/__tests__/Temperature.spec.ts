@@ -1,5 +1,5 @@
 import Temperature from "@/classes/Temperature";
-import TemperatureUnit from "@/types/TemperatureUnit";
+import TemperatureUnit from "@/types/units/TemperatureUnit";
 
 describe("Temperature", () => {
   let t: Temperature;

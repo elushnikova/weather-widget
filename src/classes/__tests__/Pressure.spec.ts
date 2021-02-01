@@ -1,5 +1,5 @@
 import Pressure from "@/classes/Pressure";
-import PressureUnit from "@/types/PressureUnit";
+import PressureUnit from "@/types/units/PressureUnit";
 
 describe("Pressure", () => {
   let p: Pressure;
