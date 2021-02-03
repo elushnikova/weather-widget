@@ -21,4 +21,9 @@ describe("Visibility", () => {
     v.convertToKilometres();
     expect(v.toString()).toBe("10km");
   });
+
+  it("can be rounded to 1 decimal place", () => {
+    v.convertToKilometres();
+    expect(v.toFixedString(1)).toBe("10.0km");
+  })
 });
