@@ -26,6 +26,8 @@ export default Vue.extend({
 
 .ww-list--row {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ww-list--wrap {

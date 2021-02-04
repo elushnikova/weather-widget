@@ -1,5 +1,11 @@
 <template>
-  <li class="ww-list__item" :class="{ 'ww-list__item--half': half }">
+  <li
+    class="ww-list__item"
+    :class="{
+      'ww-list__item--half': half,
+      'ww-list__item--no-padding': noPadding
+    }"
+  >
     <slot />
   </li>
 </template>
@@ -11,7 +17,8 @@ export default Vue.extend({
   name: "AppListItem",
 
   props: {
-    half: { type: Boolean, default: false }
+    half: { type: Boolean, default: false },
+    noPadding: { type: Boolean, default: false }
   }
 });
 </script>
@@ -20,6 +27,9 @@ export default Vue.extend({
 .ww-list__item {
   flex-shrink: 0;
   display: flex;
+}
+
+.ww-list__item:not(.ww-list__item--no-padding) {
   padding-top: 4px;
   padding-bottom: 4px;
 }
