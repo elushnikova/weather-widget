@@ -1,7 +1,7 @@
-import BeaufortScale from "@/types/BeaufortScale";
-import ErrorText from "@/types/ErrorText";
+import BeaufortScale from "@/assets/BeaufortScale";
+import ErrorText from "@/assets/ErrorText";
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
-import SpeedUnit from "@/types/units/SpeedUnit";
+import SpeedUnit from "@/assets/units/SpeedUnit";
 import WindSpeedInterface from "@/types/interfaces/WindSpeedInterface";
 
 class WindSpeed extends PhysicalQuantity implements WindSpeedInterface {

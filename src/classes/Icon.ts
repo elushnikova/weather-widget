@@ -1,5 +1,5 @@
 import IconMap from "@/assets/IconMap";
-import IconSlug from "@/types/IconSlug";
+import IconSlug from "@/assets/IconSlug";
 import IconInterface from "@/types/interfaces/IconInterface";
 
 class Icon implements IconInterface {

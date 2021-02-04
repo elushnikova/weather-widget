@@ -1,5 +1,5 @@
 import PhysicalQuantityInterface from "@/types/interfaces/PhysicalQuantityInterface";
-import SpeedUnit from "@/types/units/SpeedUnit";
+import SpeedUnit from "@/assets/units/SpeedUnit";
 
 interface WindSpeedInterface extends PhysicalQuantityInterface {
   unit: SpeedUnit;

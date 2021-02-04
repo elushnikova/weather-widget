@@ -1,4 +1,4 @@
-import DistanceUnit from "@/types/units/DistanceUnit";
+import DistanceUnit from "@/assets/units/DistanceUnit";
 import Visibility from "@/classes/Visibility";
 
 describe("Visibility", () => {

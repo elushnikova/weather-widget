@@ -1,5 +1,5 @@
 import PhysicalQuantityInterface from "@/types/interfaces/PhysicalQuantityInterface";
-import HumidityUnit from "@/types/units/HumidityUnit";
+import HumidityUnit from "@/assets/units/HumidityUnit";
 
 interface HumidityInterface extends PhysicalQuantityInterface {
   unit: HumidityUnit;

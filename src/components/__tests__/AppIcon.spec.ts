@@ -1,7 +1,7 @@
 import { createLocalVue, shallowMount, Wrapper } from "@vue/test-utils";
 import AppIcon from "@/components/AppIcon.vue";
-import IconSlug from "@/types/IconSlug";
-import ErrorText from "@/types/ErrorText";
+import IconSlug from "@/assets/IconSlug";
+import ErrorText from "@/assets/ErrorText";
 
 describe("AppIcon.vue", () => {
   const localVue = createLocalVue();

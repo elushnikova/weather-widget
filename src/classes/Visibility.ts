@@ -1,4 +1,4 @@
-import DistanceUnit from "@/types/units/DistanceUnit";
+import DistanceUnit from "@/assets/units/DistanceUnit";
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
 import VisibilityInterface from "@/types/interfaces/VisibilityInterface";
 

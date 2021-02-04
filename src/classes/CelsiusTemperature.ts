@@ -1,5 +1,5 @@
 import Temperature from "@/classes/Temperature";
-import TemperatureUnit from "@/types/units/TemperatureUnit";
+import TemperatureUnit from "@/assets/units/TemperatureUnit";
 
 class CelsiusTemperature extends Temperature {
   constructor(kelvinValue: number) {

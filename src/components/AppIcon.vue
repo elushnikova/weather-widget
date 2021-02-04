@@ -13,8 +13,8 @@
 <script lang="ts">
 import Vue from "vue";
 import Icon from "@/classes/Icon";
-import IconSlug from "@/types/IconSlug";
-import ErrorText from "@/types/ErrorText";
+import IconSlug from "@/assets/IconSlug";
+import ErrorText from "@/assets/ErrorText";
 
 export default Vue.extend({
   name: "AppIcon",

@@ -1,4 +1,4 @@
-import IconSlug from "@/types/IconSlug";
+import IconSlug from "@/assets/IconSlug";
 
 type IconMapItem = {
   title: string;

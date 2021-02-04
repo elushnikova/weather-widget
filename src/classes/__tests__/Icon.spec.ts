@@ -1,6 +1,6 @@
 import Icon from "@/classes/Icon";
 import IconMap from "@/assets/IconMap";
-import IconSlug from "@/types/IconSlug";
+import IconSlug from "@/assets/IconSlug";
 
 describe("Icon", () => {
   let i: Icon;

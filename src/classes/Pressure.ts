@@ -1,6 +1,6 @@
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
 import PressureInterface from "@/types/interfaces/PressureInterface";
-import PressureUnit from "@/types/units/PressureUnit";
+import PressureUnit from "@/assets/units/PressureUnit";
 
 class Pressure extends PhysicalQuantity implements PressureInterface {
   constructor(value: number) {

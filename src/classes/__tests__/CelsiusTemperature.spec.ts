@@ -1,5 +1,5 @@
 import CelsiusTemperature from "@/classes/CelsiusTemperature";
-import TemperatureUnit from "@/types/units/TemperatureUnit";
+import TemperatureUnit from "@/assets/units/TemperatureUnit";
 
 describe("CelsiusTemperature", () => {
   let t: CelsiusTemperature;

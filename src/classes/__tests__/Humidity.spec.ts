@@ -1,6 +1,6 @@
-import ErrorText from "@/types/ErrorText";
+import ErrorText from "@/assets/ErrorText";
 import Humidity from "@/classes/Humidity";
-import HumidityUnit from "@/types/units/HumidityUnit";
+import HumidityUnit from "@/assets/units/HumidityUnit";
 
 describe("Humidity", () => {
   let h: Humidity;

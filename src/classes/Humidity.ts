@@ -1,6 +1,6 @@
-import ErrorText from "@/types/ErrorText";
+import ErrorText from "@/assets/ErrorText";
 import HumidityInterface from "@/types/interfaces/HumidityInterface";
-import HumidityUnit from "@/types/units/HumidityUnit";
+import HumidityUnit from "@/assets/units/HumidityUnit";
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
 
 class Humidity extends PhysicalQuantity implements HumidityInterface {

@@ -1,5 +1,5 @@
 import PhysicalQuantityInterface from "@/types/interfaces/PhysicalQuantityInterface";
-import DistanceUnit from "@/types/units/DistanceUnit";
+import DistanceUnit from "@/assets/units/DistanceUnit";
 
 interface VisibilityInterface extends PhysicalQuantityInterface {
   unit: DistanceUnit;
