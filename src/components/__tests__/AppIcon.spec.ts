@@ -1,11 +1,12 @@
 import { createLocalVue, shallowMount, Wrapper } from "@vue/test-utils";
+import Vue from "vue";
 import AppIcon from "@/components/AppIcon.vue";
 import IconSlug from "@/assets/IconSlug";
 import ErrorText from "@/assets/ErrorText";
 
 describe("AppIcon.vue", () => {
   const localVue = createLocalVue();
-  let wrapper: Wrapper<AppIcon>;
+  let wrapper: Wrapper<Vue>;
 
   beforeEach(() => {
     wrapper = shallowMount(AppIcon, {
