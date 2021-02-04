@@ -21,4 +21,3 @@ const BeaufortScale: Readonly<Map<number, BeaufortScaleItem>> = new Map([
 ]);
 
 export default BeaufortScale;
-export { BeaufortScaleItem };
