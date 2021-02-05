@@ -16,9 +16,9 @@ const weatherItem: WeatherApiInterface = {
   base: "stations",
   main: {
     temp: 273.15,
-    feels_like: 268.92,
-    temp_min: 273.15,
-    temp_max: 273.15,
+    feels_like: 268.92, // eslint-disable-line @typescript-eslint/camelcase
+    temp_min: 273.15, // eslint-disable-line @typescript-eslint/camelcase
+    temp_max: 273.15, // eslint-disable-line @typescript-eslint/camelcase
     pressure: 987,
     humidity: 93,
   },
