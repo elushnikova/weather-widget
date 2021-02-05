@@ -25,6 +25,7 @@ export default Vue.extend({
 
 <style lang="scss">
 .ww-list__item {
+  box-sizing: border-box;
   flex-shrink: 0;
   display: flex;
 }
