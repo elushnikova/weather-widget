@@ -13,7 +13,7 @@ class WindSpeed extends PhysicalQuantity implements WindSpeedInterface {
     super(value, SpeedUnit.MetrePerSecond);
   }
 
-  toBeaufort() {
+  toBeaufort(): string {
     for (const item of BeaufortScale.values()) {
       if (this.value <= item.maxSpeed) {
         return item.description;

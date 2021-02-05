@@ -9,7 +9,7 @@ abstract class PhysicalQuantity implements PhysicalQuantityInterface {
     this.value = value;
   }
 
-  toString() {
+  toString(): string {
     return this.value + this.unit;
   }
 
