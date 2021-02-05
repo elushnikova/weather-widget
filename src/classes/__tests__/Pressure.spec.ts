@@ -13,12 +13,12 @@ describe("Pressure", () => {
   });
 
   it("can round value to integer", () => {
-    p.round(0)
+    p.round(0);
     expect(p.value).toBe(980);
   });
 
   it("can be converted to string", () => {
-    p.round(0)
+    p.round(0);
     expect(p.toString()).toBe("980hPa");
   });
 });
