@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade">
+  <transition name="slide-x">
     <div class="ww-view" v-if="show" :key="name">
       <slot />
     </div>
@@ -25,15 +25,15 @@ export default Vue.extend({
   box-sizing: border-box;
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.slide-x-enter-active,
+.slide-x-leave-active {
   transition-property: opacity, transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
 }
 
-.fade-enter,
-.fade-leave-to {
+.slide-x-enter,
+.slide-x-leave-to {
   opacity: 0;
   transform: translateX(-100%);
 }
