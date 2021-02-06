@@ -14,7 +14,6 @@ export default Vue.extend({
 
 <style lang="scss">
 .ww-card {
-  width: 200px;
   box-sizing: border-box;
 
   &:not(:last-child) {

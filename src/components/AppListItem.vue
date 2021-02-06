@@ -3,7 +3,8 @@
     class="ww-list__item"
     :class="{
       'ww-list__item--half': half,
-      'ww-list__item--no-padding': noPadding
+      'ww-list__item--no-padding': noPadding,
+      'ww-list__item--block': block
     }"
   >
     <slot />
@@ -18,7 +19,8 @@ export default Vue.extend({
 
   props: {
     half: { type: Boolean, default: false },
-    noPadding: { type: Boolean, default: false }
+    noPadding: { type: Boolean, default: false },
+    block: { type: Boolean, default: false }
   }
 });
 </script>
@@ -37,5 +39,18 @@ export default Vue.extend({
 
 .ww-list__item--half {
   flex-basis: 50%;
+}
+
+.ww-list__item--block {
+  background-color: whitesmoke;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  &:not(.ww-list__item--no-padding) {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
 }
 </style>

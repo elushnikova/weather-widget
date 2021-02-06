@@ -52,3 +52,9 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="scss">
+.ww-icon {
+  display: block;
+}
+</style>
