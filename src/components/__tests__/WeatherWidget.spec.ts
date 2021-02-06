@@ -1,14 +1,27 @@
-import { createLocalVue, shallowMount } from "@vue/test-utils";
+import { createLocalVue, shallowMount, Wrapper } from "@vue/test-utils";
 import WeatherWidget from "@/WeatherWidget.vue";
-import WeatherCard from "@/components/WeatherCard.vue";
+import IndexView from "@/views/IndexView.vue";
+import SettingsView from "@/views/SettingsView.vue";
 
 describe("WeatherWidget.vue", () => {
-  it("renders WeatherCard component", () => {
-    const localVue = createLocalVue();
-    const wrapper = shallowMount(WeatherWidget, { localVue });
-    const cityCard = wrapper.findComponent(WeatherCard);
-    
-    expect(cityCard.exists()).toBe(true);
+  const localVue = createLocalVue();
+  let wrapper: Wrapper<Vue>;
+
+  beforeAll(() => {
+    wrapper = shallowMount(WeatherWidget, { localVue });
+  });
+
+  afterAll(() => {
     wrapper.destroy();
+  });
+
+  it("renders IndexView component", () => {
+    const indexView = wrapper.findComponent(IndexView);
+    expect(indexView.exists()).toBe(true);
+  });
+
+  it("renders SettingsView component", () => {
+    const settingsView = wrapper.findComponent(SettingsView);
+    expect(settingsView.exists()).toBe(true);
   });
 });
