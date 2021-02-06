@@ -1,5 +1,4 @@
 import { createLocalVue, shallowMount, Wrapper } from "@vue/test-utils";
-import Vue from "vue";
 import AppIcon from "@/components/AppIcon.vue";
 import IconSlug from "@/assets/IconSlug";
 import ErrorText from "@/assets/ErrorText";
