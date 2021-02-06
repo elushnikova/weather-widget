@@ -1,8 +1,14 @@
 import Vue from "vue";
-import WeatherWidget from "./WeatherWidget.vue";
+import WeatherWidget from "@/WeatherWidget.vue";
 
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(WeatherWidget)
+  render: function(createElement) {
+    return createElement(WeatherWidget, {
+      props: {
+        apiKey: "TODO: Take from .env or supply directly",
+      },
+    });
+  },
 }).$mount("#weather-widget");

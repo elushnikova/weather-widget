@@ -8,7 +8,10 @@ describe("WeatherWidget.vue", () => {
   let wrapper: Wrapper<Vue>;
 
   beforeAll(() => {
-    wrapper = shallowMount(WeatherWidget, { localVue });
+    wrapper = shallowMount(WeatherWidget, {
+      localVue,
+      propsData: { apiKey: "TEST KEY" },
+    });
   });
 
   afterAll(() => {

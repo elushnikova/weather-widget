@@ -26,6 +26,10 @@ export default Vue.extend({
     SettingsView
   },
 
+  props: {
+    apiKey: { type: String, required: true }
+  },
+
   data() {
     return {
       showSettings: false
