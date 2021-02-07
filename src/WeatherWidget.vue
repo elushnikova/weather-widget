@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapMutations } from "vuex";
 
 import IndexView from "@/views/IndexView.vue";
 import SettingsView from "@/views/SettingsView.vue";
@@ -34,6 +35,16 @@ export default Vue.extend({
     return {
       showSettings: false
     };
+  },
+
+  methods: {
+    ...mapMutations({
+      setKey: "setKey"
+    })
+  },
+
+  created() {
+    this.setKey(this.apiKey);
   }
 });
 </script>
