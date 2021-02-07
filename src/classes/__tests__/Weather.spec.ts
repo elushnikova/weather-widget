@@ -43,10 +43,10 @@ describe("Weather", () => {
     expect(w.temperature.unit).toBe(TemperatureUnit.DegreeCelsius);
   });
 
-  it("rounds temperature value to 2 decimal places", () => {
+  it("rounds temperature value to integer", () => {
     input.main.temp = 300.123456;
     const testObject = new Weather(input);
-    expect(testObject.temperature.value).toBe(26.97);
+    expect(testObject.temperature.value).toBe(27);
   });
 
   it("converts 'feels like' temperature to degrees Celsius", () => {

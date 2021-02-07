@@ -37,7 +37,7 @@ class Weather implements WeatherInterface {
     this.description = descriptionSentence.toSentenceCase([]);
 
     this.temperature = new CelsiusTemperature(item.main.temp);
-    this.temperature.round(2);
+    this.temperature.round(0);
 
     this.feelsLike = new CelsiusTemperature(item.main.feels_like);
     this.feelsLike.round(0);
