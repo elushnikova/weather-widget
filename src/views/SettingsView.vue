@@ -31,14 +31,14 @@ export default Vue.extend({
     SearchCard
   },
 
+  props: {
+    show: { type: Boolean, required: true }
+  },
+
   data() {
     return {
       IconSlug
     };
-  },
-
-  props: {
-    show: { type: Boolean, required: true }
   }
 });
 </script>
