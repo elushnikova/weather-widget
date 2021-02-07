@@ -11,7 +11,7 @@ const IconMap: Readonly<Map<IconSlug, IconMapItem>> = new Map([
   [IconSlug.Wind, { title: "Wind direction", fileSlug: "up-arrow" }],
   [IconSlug.Pressure, { title: "Pressure", fileSlug: "pressure-gauge" }],
   [IconSlug.Drag, { title: "Drag", fileSlug: "menu" }],
-  [IconSlug.Delete, { title: "Delete", fileSlug: "trash" }],
+  [IconSlug.Remove, { title: "Remove", fileSlug: "trash" }],
   [IconSlug.Search, { title: "Search", fileSlug: "down-left" }],
 ]);
 

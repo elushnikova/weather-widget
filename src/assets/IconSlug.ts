@@ -4,7 +4,7 @@ enum IconSlug {
   Wind = "wind",
   Pressure = "pressure",
   Drag = "drag",
-  Delete = "delete",
+  Remove = "remove",
   Search = "search",
 }
 

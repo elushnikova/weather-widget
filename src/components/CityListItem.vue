@@ -10,7 +10,7 @@
       </span>
 
       <app-btn class="ww-right js-remove" @click="handleRemove()">
-        <app-icon :slug="IconSlug.Delete" />
+        <app-icon :slug="IconSlug.Remove" />
       </app-btn>
     </app-list-item>
   </transition>
