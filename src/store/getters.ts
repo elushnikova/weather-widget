@@ -11,6 +11,7 @@ const getters = {
     return state.list;
   },
 
+  /** @deprecated */
   cityList(state: StateInterface): City[] {
     return state.list.map((item: Weather) => new City(item));
   },

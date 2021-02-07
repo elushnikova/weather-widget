@@ -3,7 +3,6 @@ import Vuex from "vuex";
 import CityListItem from "@/components/CityListItem.vue";
 import Weather from "@/classes/Weather";
 import weatherItem from "@/classes/mocks/weatherItem";
-import City from "@/classes/City";
 import mockStoreOptions from "@/store/mocks/mockStoreOptions";
 
 describe("CityListItem.vue", () => {
@@ -18,13 +17,12 @@ describe("CityListItem.vue", () => {
 
   beforeEach(() => {
     const mockWeather = new Weather(weatherItem);
-    const mockCity = new City(mockWeather);
 
     wrapper = mount(CityListItem, {
       localVue,
       store: mockStore,
       propsData: {
-        item: mockCity,
+        item: mockWeather,
       },
     });
 

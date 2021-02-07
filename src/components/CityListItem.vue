@@ -1,12 +1,12 @@
 <template>
   <transition name="fade" appear>
     <app-list-item block class="ww-city">
-      <app-btn>
+      <app-btn class="js-drag">
         <app-icon :slug="IconSlug.Drag" />
       </app-btn>
 
       <span class="ww-city__name">
-        {{ item.toString() }}
+        {{ item.location }}
       </span>
 
       <app-btn class="ww-right js-remove" @click="handleRemove()">
@@ -36,7 +36,7 @@ export default Vue.extend({
   },
 
   props: {
-    /** @todo Validate that it's an instance of City class */
+    /** @todo Validate that it's an instance of Weather class */
     item: { type: Object, required: true }
   },
 

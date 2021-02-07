@@ -5,13 +5,19 @@
     </app-card-title>
 
     <app-card-content>
-      <app-list v-if="cities.length">
+      <draggable
+        v-if="list.length"
+        tag="ul"
+        :list="list"
+        handle=".js-drag"
+        class="ww-list"
+      >
         <city-list-item
-          v-for="city in cities"
-          :key="city.toString()"
-          :item="city"
+          v-for="weather in list"
+          :key="weather.location"
+          :item="weather"
         />
-      </app-list>
+      </draggable>
 
       <p v-else>Please, add your location below.</p>
     </app-card-content>
@@ -20,12 +26,12 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
+import draggable from "vuedraggable";
 
 import AppCard from "@/components/AppCard.vue";
 import AppCardContent from "@/components/AppCardContent.vue";
 import AppCardTitle from "@/components/AppCardTitle.vue";
-import AppList from "@/components/AppList.vue";
 import CityListItem from "@/components/CityListItem.vue";
 
 export default Vue.extend({
@@ -35,13 +41,25 @@ export default Vue.extend({
     AppCard,
     AppCardContent,
     AppCardTitle,
-    AppList,
-    CityListItem
+    CityListItem,
+    draggable
   },
 
   computed: {
-    ...mapGetters({
-      cities: "cityList"
+    list: {
+      get() {
+        return this.$store.getters.weatherList;
+      },
+
+      set(list) {
+        this.setList(list);
+      }
+    }
+  },
+
+  methods: {
+    ...mapMutations({
+      setList: "setList"
     })
   }
 });

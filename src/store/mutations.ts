@@ -1,5 +1,5 @@
+import Vue from "vue";
 import Weather from "@/classes/Weather";
-import City from "@/classes/City";
 import StateInterface from "@/types/interfaces/StateInterface";
 import ErrorText from "@/assets/ErrorText";
 
@@ -13,6 +13,10 @@ const mutations = {
     state.apiKey = apiKey;
   },
 
+  setList(state: StateInterface, list: Weather[]): void {
+    Vue.set(state, "list", [...list]);
+  },
+
   add(state: StateInterface, item: Weather): void {
     const index = state.list.findIndex((i) => i.cityId === item.cityId);
     const isDuplicate = index >= 0;
@@ -24,8 +28,8 @@ const mutations = {
     state.list.push(item);
   },
 
-  remove(state: StateInterface, item: City): void {
-    const index = state.list.findIndex((i) => i.cityId === item.id);
+  remove(state: StateInterface, item: Weather): void {
+    const index = state.list.findIndex((i) => i.cityId === item.cityId);
     const notFound = index < 0;
 
     if (notFound) {
@@ -33,18 +37,6 @@ const mutations = {
     }
 
     state.list.splice(index, 1);
-  },
-
-  reorder(state: StateInterface, { item, targetIndex }: InputInterface): void {
-    const index = state.list.indexOf(item);
-    const notFound = index < 0;
-
-    if (notFound) {
-      throw new Error(ErrorText.ItemNotFound);
-    }
-
-    state.list.splice(index, 1);
-    state.list.splice(targetIndex, 0, item);
   },
 };
 
