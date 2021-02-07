@@ -1,6 +1,11 @@
 <template>
-  <form class="ww-search" @submit.prevent="handleSubmit">
-    <input name="city" class="ww-search__input" type="text" />
+  <form class="ww-search" @submit.prevent="handleSubmit()">
+    <input
+      name="location"
+      class="ww-search__input"
+      type="text"
+      v-model="location"
+    />
 
     <app-btn class="ww-search__btn">
       <app-icon :slug="IconSlug.Search" />
@@ -16,11 +21,13 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 
 import AppBtn from "@/components/AppBtn.vue";
 import AppIcon from "@/components/AppIcon.vue";
 
 import IconSlug from "@/assets/IconSlug";
+import ApiInputInterface from "@/types/interfaces/ApiInputInterface";
 
 export default Vue.extend({
   name: "SearchForm",
@@ -33,13 +40,42 @@ export default Vue.extend({
   data() {
     return {
       IconSlug,
+      location: "",
       feedback: ""
     };
   },
 
+  computed: {
+    ...mapGetters({
+      apiKey: "apiKey"
+    }),
+
+    input(): ApiInputInterface {
+      return {
+        apiKey: this.apiKey,
+        location: this.location
+      };
+    }
+  },
+
   methods: {
-    handleSubmit(): void {
-      this.showFeedback("TODO: City added or not found");
+    ...mapActions({
+      fetchWeather: "fetchWeather"
+    }),
+
+    ...mapMutations({
+      add: "add"
+    }),
+
+    async handleSubmit() {
+      await this.fetchWeather(this.input)
+        .then(() => {
+          this.showFeedback("Added successfully");
+        })
+        .catch(error => {
+          this.showFeedback(error.message);
+        });
+
       setTimeout(this.hideFeedback, 2000);
     },
 

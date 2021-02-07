@@ -1,19 +1,24 @@
 <template>
-  <app-list-item block class="ww-city">
-    <app-btn>
-      <app-icon :slug="IconSlug.Drag" />
-    </app-btn>
+  <transition name="fade" appear>
+    <app-list-item block class="ww-city">
+      <app-btn>
+        <app-icon :slug="IconSlug.Drag" />
+      </app-btn>
 
-    <span class="ww-city__name">Saint Petersburg, RU</span>
+      <span class="ww-city__name">
+        {{ item.toString() }}
+      </span>
 
-    <app-btn class="ww-right">
-      <app-icon :slug="IconSlug.Delete" />
-    </app-btn>
-  </app-list-item>
+      <app-btn class="ww-right js-remove" @click="handleRemove()">
+        <app-icon :slug="IconSlug.Delete" />
+      </app-btn>
+    </app-list-item>
+  </transition>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { mapMutations } from "vuex";
 
 import AppListItem from "@/components/AppListItem.vue";
 import AppBtn from "@/components/AppBtn.vue";
@@ -30,10 +35,25 @@ export default Vue.extend({
     AppIcon
   },
 
+  props: {
+    /** @todo Validate that it's an instance of City class */
+    item: { type: Object, required: true }
+  },
+
   data() {
     return {
       IconSlug
     };
+  },
+
+  methods: {
+    ...mapMutations({
+      remove: "remove"
+    }),
+
+    handleRemove() {
+      this.remove(this.item);
+    }
   }
 });
 </script>
