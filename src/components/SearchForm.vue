@@ -71,6 +71,7 @@ export default Vue.extend({
       await this.fetchWeather(this.input)
         .then(() => {
           this.showFeedback("Added successfully");
+          this.clearInput();
         })
         .catch(error => {
           this.showFeedback(error.message);
@@ -85,6 +86,10 @@ export default Vue.extend({
 
     hideFeedback(): void {
       this.feedback = "";
+    },
+
+    clearInput(): void {
+      this.location = "";
     }
   }
 });
