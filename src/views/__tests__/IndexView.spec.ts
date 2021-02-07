@@ -1,14 +1,20 @@
 import { createLocalVue, shallowMount, Wrapper } from "@vue/test-utils";
+import Vuex from "vuex";
 import IndexView from "@/views/IndexView.vue";
 import WeatherCard from "@/components/WeatherCard.vue";
+import mockStoreOptions from "@/store/mocks/mockStoreOptions";
 
 describe("IndexView.vue", () => {
   const localVue = createLocalVue();
   let wrapper: Wrapper<Vue>;
 
+  localVue.use(Vuex);
+  const mockStore = new Vuex.Store(mockStoreOptions);
+
   beforeAll(() => {
     wrapper = shallowMount(IndexView, {
       localVue,
+      store: mockStore,
       propsData: { show: true },
     });
   });
@@ -17,8 +23,9 @@ describe("IndexView.vue", () => {
     wrapper.destroy();
   });
 
-  it("renders at least one WeatherCard", () => {
+  it("renders a WeatherCard per state.list item", async () => {
     const weatherCard = wrapper.findComponent(WeatherCard);
+    expect(mockStore.state.list.length).toBe(1);
     expect(weatherCard.exists()).toBe(true);
   });
 });

@@ -4,24 +4,27 @@
       <app-icon :slug="IconSlug.Settings" :size="20" />
     </app-btn>
 
-    <weather-card
-      v-for="weather in items"
-      :weather="weather"
-      :key="weather.cityId"
-    />
+    <template v-if="items.length">
+      <weather-card
+        v-for="weather in items"
+        :weather="weather"
+        :key="weather.cityId"
+      />
+    </template>
+
+    <weather-empty-card v-else />
   </app-view>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import { mapGetters } from "vuex";
 
 import AppBtn from "@/components/AppBtn.vue";
 import AppIcon from "@/components/AppIcon.vue";
 import AppView from "@/components/AppView.vue";
 import WeatherCard from "@/components/WeatherCard.vue";
-
-import Weather from "@/classes/Weather";
-import weatherItem from "@/classes/mocks/weatherItem";
+import WeatherEmptyCard from "@/components/WeatherEmptyCard.vue";
 
 import IconSlug from "@/assets/IconSlug";
 
@@ -32,7 +35,8 @@ export default Vue.extend({
     AppBtn,
     AppIcon,
     AppView,
-    WeatherCard
+    WeatherCard,
+    WeatherEmptyCard
   },
 
   props: {
@@ -41,15 +45,14 @@ export default Vue.extend({
 
   data() {
     return {
-      IconSlug,
-      rawItems: [weatherItem, { ...weatherItem, id: 123 }]
+      IconSlug
     };
   },
 
   computed: {
-    items(): Weather[] {
-      return this.rawItems.map(i => new Weather(i));
-    }
+    ...mapGetters({
+      items: "weatherList"
+    })
   }
 });
 </script>
