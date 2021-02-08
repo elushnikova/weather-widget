@@ -1,11 +1,11 @@
 import { createLocalVue, shallowMount, Wrapper } from "@vue/test-utils";
 import Vuex from "vuex";
-import WeatherWidget from "@/WeatherWidget.vue";
+import App from "@/App.vue";
 import IndexView from "@/views/IndexView.vue";
 import SettingsView from "@/views/SettingsView.vue";
 import mockStoreOptions from "@/store/mocks/mockStoreOptions";
 
-describe("WeatherWidget.vue", () => {
+describe("App.vue", () => {
   const localVue = createLocalVue();
   let wrapper: Wrapper<Vue>;
 
@@ -13,7 +13,7 @@ describe("WeatherWidget.vue", () => {
   const mockStore = new Vuex.Store(mockStoreOptions);
 
   beforeAll(() => {
-    wrapper = shallowMount(WeatherWidget, {
+    wrapper = shallowMount(App, {
       localVue,
       store: mockStore,
       propsData: { apiKey: "TEST KEY" },
