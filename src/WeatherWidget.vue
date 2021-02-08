@@ -1,5 +1,5 @@
 <template>
-  <div class="weather-widget">
+  <div id="weather-widget" class="weather-widget">
     <index-view
       :show="!showSettings"
       @change-view="showSettings = !showSettings"
@@ -20,7 +20,7 @@ import IndexView from "@/views/IndexView.vue";
 import SettingsView from "@/views/SettingsView.vue";
 
 export default Vue.extend({
-  name: "App",
+  name: "WeatherWidget",
 
   components: {
     IndexView,
