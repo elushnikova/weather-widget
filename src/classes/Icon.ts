@@ -8,11 +8,15 @@ class Icon implements IconInterface {
   url: string;
 
   constructor(slug: IconSlug) {
-    this.slug = slug;
-
     const icon = IconMap.get(slug);
+    const host =
+      process.env.NODE_ENV === "production"
+        ? "https://owm-widget.netlify.app/"
+        : "";
+
+    this.slug = slug;
     this.title = icon!.title;
-    this.url = `/icons/icons8-${icon!.fileSlug}-50.png`;
+    this.url = `${host}/icons/icons8-${icon!.fileSlug}-50.png`;
   }
 }
 
