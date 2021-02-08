@@ -30,7 +30,7 @@ class Weather implements WeatherInterface {
   constructor(item: WeatherApiInterface) {
     this.cityId = item.id;
     this.location = item.name + ", " + item.sys.country;
-    this.image = `http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
+    this.image = `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
     this.name = item.weather[0].main;
 
     const descriptionSentence = new Sentence(item.weather[0].description);
