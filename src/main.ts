@@ -10,7 +10,7 @@ new Vue({
   render: function(createElement) {
     return createElement(App, {
       props: {
-        apiKey: "TODO: Take from .env or supply directly",
+        apiKey: "d685c708cd4f9709928c921bec3bd482",
       },
     });
   },
