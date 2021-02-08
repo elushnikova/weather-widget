@@ -16,24 +16,23 @@
 import Vue from "vue";
 import { mapMutations } from "vuex";
 
+import store from "@/store";
 import IndexView from "@/views/IndexView.vue";
 import SettingsView from "@/views/SettingsView.vue";
 
 export default Vue.extend({
-  name: "WeatherWidget",
+  store,
+  name: "App",
 
   components: {
     IndexView,
     SettingsView
   },
 
-  props: {
-    apiKey: { type: String, required: true }
-  },
-
   data() {
     return {
-      showSettings: false
+      showSettings: false,
+      apiKey: "d685c708cd4f9709928c921bec3bd482",
     };
   },
 

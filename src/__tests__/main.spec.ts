@@ -1,5 +1,5 @@
 describe("main.ts", () => {
-  it("can mount WeatherWidget component", () => {
+  it("can mount App component", () => {
     /** Suppress console error from undefined fetch */
     const spy = jest
       .spyOn(global.console, "error")
