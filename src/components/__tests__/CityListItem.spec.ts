@@ -22,7 +22,7 @@ describe("CityListItem.vue", () => {
       localVue,
       store: mockStore,
       propsData: {
-        item: mockWeather,
+        item: mockWeather.location,
       },
     });
 

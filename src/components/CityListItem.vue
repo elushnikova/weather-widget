@@ -6,7 +6,7 @@
       </app-btn>
 
       <span class="ww-city__name">
-        {{ item.location }}
+        {{ item }}
       </span>
 
       <app-btn class="ww-right js-remove" @click="handleRemove()">
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 
 import AppListItem from "@/components/AppListItem.vue";
 import AppBtn from "@/components/AppBtn.vue";
@@ -36,8 +36,7 @@ export default Vue.extend({
   },
 
   props: {
-    /** @todo Validate that it's an instance of Weather class */
-    item: { type: Object, required: true }
+    item: { type: String, required: true }
   },
 
   data() {
@@ -47,7 +46,7 @@ export default Vue.extend({
   },
 
   methods: {
-    ...mapMutations({
+    ...mapActions({
       remove: "remove"
     }),
 

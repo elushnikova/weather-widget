@@ -8,6 +8,7 @@ const mockWeather = new Weather(weatherItem);
 const mockState: StateInterface = {
   apiKey: "",
   list: [mockWeather],
+  locationList: [mockWeather.location],
 };
 const mockActions = {
   fetchWeather(): void {

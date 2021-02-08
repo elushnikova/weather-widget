@@ -9,6 +9,10 @@ const getters = {
   weatherList(state: StateInterface): Weather[] {
     return state.list;
   },
+
+  locationList(state: StateInterface): string[] {
+    return state.locationList;
+  }
 };
 
 export default getters;

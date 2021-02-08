@@ -7,6 +7,7 @@ const mockWeather = new Weather(weatherItem);
 const state: StateInterface = {
   apiKey: "",
   list: [mockWeather],
+  locationList: [mockWeather.location]
 };
 
 describe("getters.weatherList", () => {

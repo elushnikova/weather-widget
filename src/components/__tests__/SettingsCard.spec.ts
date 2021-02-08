@@ -21,12 +21,15 @@ describe("SettingsCard.vue", () => {
     wrapper.destroy();
   });
 
-  it("has setter for computed property `list`", () => {
+  it("has setter for computed property locationList", async () => {
     /** @fixme Avoid casting wrapper.vm to any */
     const wrapperVmAsAny: any = wrapper.vm;
+    const spy = jest.spyOn(wrapperVmAsAny.$store, "dispatch");
 
-    expect(wrapperVmAsAny.list.length).toBe(1);
-    wrapperVmAsAny.list = [];
-    expect(wrapperVmAsAny.list.length).toBe(0);
+    expect(wrapperVmAsAny.locationList.length).toBe(1);
+    wrapperVmAsAny.locationList = [];
+
+    expect(spy).toHaveBeenCalledWith("setLocationList", []);
+    spy.mockRestore();
   });
 });

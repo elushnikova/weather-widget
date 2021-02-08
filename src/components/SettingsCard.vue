@@ -1,21 +1,19 @@
 <template>
   <app-card>
-    <app-card-title>
-      Settings
-    </app-card-title>
+    <app-card-title> Settings </app-card-title>
 
     <app-card-content>
       <draggable
-        v-if="list.length"
+        v-if="locationList.length"
+        v-model="locationList"
         tag="ul"
-        :list="list"
         handle=".js-drag"
         class="ww-list"
       >
         <city-list-item
-          v-for="weather in list"
-          :key="weather.location"
-          :item="weather"
+          v-for="location in locationList"
+          :key="location"
+          :item="location"
         />
       </draggable>
 
@@ -26,7 +24,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapMutations } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import draggable from "vuedraggable";
 
 import AppCard from "@/components/AppCard.vue";
@@ -45,22 +43,26 @@ export default Vue.extend({
     draggable
   },
 
-  computed: {
-    list: {
-      get() {
-        return this.$store.getters.weatherList;
-      },
-
-      set(list) {
-        this.setList(list);
-      }
-    }
+  methods: {
+    ...mapActions({
+      fetch: "fetch"
+    })
   },
 
-  methods: {
-    ...mapMutations({
-      setList: "setList"
-    })
+  computed: {
+    ...mapGetters({
+      apiKey: "apiKey"
+    }),
+
+    locationList: {
+      get() {
+        return this.$store.getters.locationList;
+      },
+
+      async set(value) {
+        await this.$store.dispatch("setLocationList", value);
+      }
+    }
   }
 });
 </script>

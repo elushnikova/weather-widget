@@ -5,9 +5,24 @@ import StateInterface from "@/types/interfaces/StateInterface";
 import ErrorText from "@/assets/ErrorText";
 
 const mockW1 = new Weather(weatherItem);
-const mockW2 = new Weather({ ...weatherItem, id: 2 });
-const mockW3 = new Weather({ ...weatherItem, id: 3 });
-const mockW4 = new Weather({ ...weatherItem, id: 4 });
+const mockW2 = new Weather({
+  ...weatherItem,
+  id: 2,
+  name: "Moscow",
+  sys: { ...weatherItem.sys, country: "RU" },
+});
+const mockW3 = new Weather({
+  ...weatherItem,
+  id: 3,
+  name: "Tashkent",
+  sys: { ...weatherItem.sys, country: "UZ" },
+});
+const mockW4 = new Weather({
+  ...weatherItem,
+  id: 4,
+  name: "Samarkand",
+  sys: { ...weatherItem.sys, country: "UZ" },
+});
 
 let state: StateInterface;
 
@@ -33,14 +48,14 @@ describe("mutations.add", () => {
   });
 });
 
-describe("mutations.remove", () => {
+describe("mutations.removeWeather", () => {
   beforeEach(() => {
     setupState();
   });
 
   it("removes weather item from state.list", () => {
     const expected = [mockW1, mockW3];
-    mutations.remove(state, mockW2);
+    mutations.removeWeather(state, mockW2.location);
     expect(state.list).toStrictEqual(expected);
   });
 
@@ -48,7 +63,7 @@ describe("mutations.remove", () => {
     expect(state.list).toStrictEqual([mockW1, mockW2, mockW3]);
 
     const invalidCall = () => {
-      mutations.remove(state, mockW4);
+      mutations.removeWeather(state, mockW4.location);
     };
 
     expect(invalidCall).toThrow(ErrorText.ItemNotFound);
@@ -59,5 +74,6 @@ function setupState() {
   state = {
     apiKey: "",
     list: [mockW1, mockW2, mockW3],
+    locationList: [mockW1.location, mockW2.location, mockW3.location],
   };
 }
