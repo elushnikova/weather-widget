@@ -4,8 +4,8 @@ import StateInterface from "@/types/interfaces/StateInterface";
 import ErrorText from "@/assets/ErrorText";
 
 const mutations = {
-  setWeatherList(state: StateInterface, list: Weather[]): void {
-    Vue.set(state, "list", [...list]);
+  setWeatherList(state: StateInterface, weatherList: Weather[]): void {
+    Vue.set(state, "weatherList", [...weatherList]);
   },
 
   setLocationList(state: StateInterface, locationList: string[]): void {
@@ -13,25 +13,25 @@ const mutations = {
   },
 
   addWeather(state: StateInterface, item: Weather): void {
-    const index = state.list.findIndex((i) => i.cityId === item.cityId);
+    const index = state.weatherList.findIndex((i) => i.cityId === item.cityId);
     const isDuplicate = index >= 0;
 
     if (isDuplicate) {
       throw new Error(ErrorText.ItemIsDuplicate);
     }
 
-    state.list.push(item);
+    state.weatherList.push(item);
   },
 
   removeWeather(state: StateInterface, location: string): void {
-    const index = state.list.findIndex((i) => i.location === location);
+    const index = state.weatherList.findIndex((i) => i.location === location);
     const notFound = index < 0;
 
     if (notFound) {
       throw new Error(ErrorText.ItemNotFound);
     }
 
-    state.list.splice(index, 1);
+    state.weatherList.splice(index, 1);
   },
 
   addLocation(state: StateInterface, item: string): void {

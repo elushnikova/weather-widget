@@ -2,7 +2,7 @@ import Weather from "@/classes/Weather";
 
 interface StateInterface {
   apiKey: string;
-  list: Weather[];
+  weatherList: Weather[];
   locationList: string[];
 }
 

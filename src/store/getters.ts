@@ -7,7 +7,7 @@ const getters = {
   },
 
   weatherList(state: StateInterface): Weather[] {
-    return state.list;
+    return state.weatherList;
   },
 
   locationList(state: StateInterface): string[] {

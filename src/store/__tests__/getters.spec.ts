@@ -6,12 +6,12 @@ import StateInterface from "@/types/interfaces/StateInterface";
 const mockWeather = new Weather(weatherItem);
 const state: StateInterface = {
   apiKey: "",
-  list: [mockWeather],
+  weatherList: [mockWeather],
   locationList: [mockWeather.location]
 };
 
 describe("getters.weatherList", () => {
-  it("returns state.list without modifications", () => {
+  it("returns state.weatherList without modifications", () => {
     const expected = [mockWeather];
     const result = getters.weatherList(state);
     expect(result).toStrictEqual(expected);

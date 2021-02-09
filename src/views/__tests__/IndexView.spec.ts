@@ -23,9 +23,9 @@ describe("IndexView.vue", () => {
     wrapper.destroy();
   });
 
-  it("renders WeatherEmptyCard, if state.list is empty", async () => {
+  it("renders WeatherEmptyCard, if state.weatherList is empty", async () => {
     const emptyCard = wrapper.findComponent(WeatherEmptyCard);
-    expect(mockStore.state.list.length).toBe(0);
+    expect(mockStore.state.weatherList.length).toBe(0);
     expect(emptyCard.exists()).toBe(true);
   });
 });

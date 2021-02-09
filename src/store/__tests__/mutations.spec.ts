@@ -31,14 +31,14 @@ describe("mutations.addWeather", () => {
     setupState();
   });
 
-  it("adds weather item to state.list", () => {
+  it("adds weather item to state.weatherList", () => {
     const expected = [mockW1, mockW2, mockW3, mockW4];
     mutations.addWeather(state, mockW4);
-    expect(state.list).toStrictEqual(expected);
+    expect(state.weatherList).toStrictEqual(expected);
   });
 
   it("throws error if item is already in the list", () => {
-    expect(state.list).toStrictEqual([mockW1, mockW2, mockW3]);
+    expect(state.weatherList).toStrictEqual([mockW1, mockW2, mockW3]);
 
     const invalidCall = () => {
       mutations.addWeather(state, mockW1);
@@ -53,14 +53,14 @@ describe("mutations.removeWeather", () => {
     setupState();
   });
 
-  it("removes weather item from state.list", () => {
+  it("removes weather item from state.weatherList", () => {
     const expected = [mockW1, mockW3];
     mutations.removeWeather(state, mockW2.location);
-    expect(state.list).toStrictEqual(expected);
+    expect(state.weatherList).toStrictEqual(expected);
   });
 
   it("throws error if item isn't in the list", () => {
-    expect(state.list).toStrictEqual([mockW1, mockW2, mockW3]);
+    expect(state.weatherList).toStrictEqual([mockW1, mockW2, mockW3]);
 
     const invalidCall = () => {
       mutations.removeWeather(state, mockW4.location);
@@ -73,7 +73,7 @@ describe("mutations.removeWeather", () => {
 function setupState() {
   state = {
     apiKey: "",
-    list: [mockW1, mockW2, mockW3],
+    weatherList: [mockW1, mockW2, mockW3],
     locationList: [mockW1.location, mockW2.location, mockW3.location],
   };
 }
