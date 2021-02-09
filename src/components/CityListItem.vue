@@ -18,7 +18,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapActions } from "vuex";
 
 import AppListItem from "@/components/AppListItem.vue";
 import AppBtn from "@/components/AppBtn.vue";
@@ -46,12 +45,8 @@ export default Vue.extend({
   },
 
   methods: {
-    ...mapActions({
-      remove: "remove"
-    }),
-
     handleRemove() {
-      this.remove(this.item);
+      this.$store.dispatch("remove", this.item);
     }
   }
 });

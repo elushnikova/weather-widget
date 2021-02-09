@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapActions, mapGetters, mapMutations } from "vuex";
 
 import AppBtn from "@/components/AppBtn.vue";
 import AppIcon from "@/components/AppIcon.vue";
@@ -46,29 +45,18 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapGetters({
-      apiKey: "apiKey"
-    }),
-
     input(): ApiInputInterface {
       return {
-        apiKey: this.apiKey,
+        apiKey: this.$store.getters.apiKey,
         location: this.location
       };
     }
   },
 
   methods: {
-    ...mapActions({
-      fetchWeather: "fetchWeather"
-    }),
-
-    ...mapMutations({
-      add: "add"
-    }),
-
     async handleSubmit() {
-      await this.fetchWeather(this.input)
+      await this.$store
+        .dispatch("fetchWeather", this.input)
         .then(() => {
           this.showFeedback("Added successfully");
           this.clearInput();

@@ -4,9 +4,9 @@
       <app-icon :slug="IconSlug.Settings" :size="20" />
     </app-btn>
 
-    <template v-if="items.length">
+    <template v-if="weatherList.length">
       <weather-card
-        v-for="weather in items"
+        v-for="weather in weatherList"
         :weather="weather"
         :key="weather.cityId"
       />
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import { mapGetters } from "vuex";
 
 import AppBtn from "@/components/AppBtn.vue";
 import AppIcon from "@/components/AppIcon.vue";
@@ -52,22 +52,10 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapGetters({
-      items: "weatherList",
-      locations: "locationList",
-      apiKey: "apiKey"
-    })
+    ...mapGetters(["weatherList", "locationList", "apiKey"])
   },
 
   methods: {
-    ...mapActions({
-      fetch: "fetch"
-    }),
-
-    ...mapMutations({
-      removeWeather: "removeWeather"
-    }),
-
     composeInput(location: string): ApiInputInterface {
       return {
         apiKey: this.apiKey,
@@ -76,27 +64,21 @@ export default Vue.extend({
     },
 
     removeDuplicate(location: string): void {
-      const isDuplicate = this.items.find(
+      const isDuplicate = this.weatherList.find(
         (item: Weather) => item.location === location
       );
 
       if (isDuplicate) {
-        this.removeWeather(location);
+        this.$store.commit("removeWeather", location);
       }
     }
-
-    // async syncLocation(location: string): Promise<void> {
-    //   this.removeDuplicate(location);
-    //   const input = this.composeInput(location);
-    //   await this.fetch(input);
-    // }
   },
 
   async created() {
-    await this.locations.forEach(async (location: string) => {
+    await this.locationList.forEach(async (location: string) => {
       this.removeDuplicate(location);
       const input = this.composeInput(location);
-      await this.fetch(input);
+      await this.$store.dispatch("fetch", input);
     });
   }
 });

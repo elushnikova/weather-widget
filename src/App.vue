@@ -14,7 +14,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapMutations } from "vuex";
 
 import store from "@/store";
 import IndexView from "@/views/IndexView.vue";
@@ -32,18 +31,18 @@ export default Vue.extend({
   data() {
     return {
       showSettings: false,
-      apiKey: "d685c708cd4f9709928c921bec3bd482",
+      apiKey: "d685c708cd4f9709928c921bec3bd482"
     };
   },
 
   methods: {
-    ...mapMutations({
-      setKey: "setKey"
-    })
+    setKey() {
+      this.$store.commit("setKey", this.apiKey);
+    }
   },
 
   created() {
-    this.setKey(this.apiKey);
+    this.setKey();
   }
 });
 </script>
