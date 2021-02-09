@@ -12,7 +12,7 @@ const mutations = {
     Vue.set(state, "locationList", [...locationList]);
   },
 
-  add(state: StateInterface, item: Weather): void {
+  addWeather(state: StateInterface, item: Weather): void {
     const index = state.list.findIndex((i) => i.cityId === item.cityId);
     const isDuplicate = index >= 0;
 

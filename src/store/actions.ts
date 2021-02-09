@@ -55,7 +55,7 @@ const actions = {
         .then(parse)
         .then(createWeatherObject)
         .then((weather: Weather) => {
-          commit("add", weather);
+          commit("addWeather", weather);
           resolve(weather);
         })
         .catch((error) => {

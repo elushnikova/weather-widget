@@ -26,14 +26,14 @@ const mockW4 = new Weather({
 
 let state: StateInterface;
 
-describe("mutations.add", () => {
+describe("mutations.addWeather", () => {
   beforeEach(() => {
     setupState();
   });
 
   it("adds weather item to state.list", () => {
     const expected = [mockW1, mockW2, mockW3, mockW4];
-    mutations.add(state, mockW4);
+    mutations.addWeather(state, mockW4);
     expect(state.list).toStrictEqual(expected);
   });
 
@@ -41,7 +41,7 @@ describe("mutations.add", () => {
     expect(state.list).toStrictEqual([mockW1, mockW2, mockW3]);
 
     const invalidCall = () => {
-      mutations.add(state, mockW1);
+      mutations.addWeather(state, mockW1);
     };
 
     expect(invalidCall).toThrow(ErrorText.ItemIsDuplicate);
