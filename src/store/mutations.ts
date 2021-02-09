@@ -12,41 +12,41 @@ const mutations = {
     Vue.set(state, "locationList", [...locationList]);
   },
 
-  addWeather(state: StateInterface, item: Weather): void {
-    const index = state.weatherList.findIndex((i) => i.cityId === item.cityId);
+  addWeather({ weatherList }: StateInterface, item: Weather): void {
+    const index = weatherList.findIndex((i) => i.cityId === item.cityId);
     const isDuplicate = index >= 0;
 
     if (isDuplicate) {
       throw new Error(ErrorText.ItemIsDuplicate);
     }
 
-    state.weatherList.push(item);
+    weatherList.push(item);
   },
 
-  removeWeather(state: StateInterface, location: string): void {
-    const index = state.weatherList.findIndex((i) => i.location === location);
+  removeWeather({ weatherList }: StateInterface, location: string): void {
+    const index = weatherList.findIndex((i) => i.location === location);
     const notFound = index < 0;
 
     if (notFound) {
       throw new Error(ErrorText.ItemNotFound);
     }
 
-    state.weatherList.splice(index, 1);
+    weatherList.splice(index, 1);
   },
 
-  addLocation(state: StateInterface, item: string): void {
-    state.locationList.push(item);
+  addLocation({ locationList }: StateInterface, item: string): void {
+    locationList.push(item);
   },
 
-  removeLocation(state: StateInterface, item: string): void {
-    const index = state.locationList.indexOf(item);
+  removeLocation({ locationList }: StateInterface, item: string): void {
+    const index = locationList.indexOf(item);
     const notFound = index < 0;
 
     if (notFound) {
       throw new Error(ErrorText.ItemNotFound);
     }
 
-    state.locationList.splice(index, 1);
+    locationList.splice(index, 1);
   },
 
   sortWeatherList({ weatherList, locationList }: StateInterface): void {
