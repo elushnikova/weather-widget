@@ -24,7 +24,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapActions, mapGetters } from "vuex";
 import draggable from "vuedraggable";
 
 import AppCard from "@/components/AppCard.vue";
@@ -43,17 +42,7 @@ export default Vue.extend({
     draggable
   },
 
-  methods: {
-    ...mapActions({
-      fetch: "fetch"
-    })
-  },
-
   computed: {
-    ...mapGetters({
-      apiKey: "apiKey"
-    }),
-
     locationList: {
       get() {
         return this.$store.getters.locationList;
