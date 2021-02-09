@@ -9,7 +9,9 @@ function isOk(status: number): boolean {
     return true;
   } else {
     errorText =
-      status === ResponseStatus.Unauthorized
+      status === ResponseStatus.BadRequest
+        ? ErrorText.BadRequest
+        : status === ResponseStatus.Unauthorized
         ? ErrorText.InvalidApiKey
         : status === ResponseStatus.NotFound
         ? ErrorText.CityNotFound

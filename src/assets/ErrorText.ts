@@ -10,7 +10,8 @@ enum ErrorText {
   InvalidIconSlug = "Icon not found. Check IconSlug to see available icons.",
 
   // API call errors
-  InvalidApiKey = "Your API key is invalid",
+  BadRequest = "Please, enter city name and, preferably, country code.",
+  InvalidApiKey = "Your API key is invalid.",
   CityNotFound = "City not found. Please, provide its full name and country code.",
   ClientError = "Something happened with the widget. Please, contact its maintainer.",
   ServerError = "Something happened with OpenWeather server. Please, try again later.",

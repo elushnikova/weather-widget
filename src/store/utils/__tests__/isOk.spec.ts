@@ -7,6 +7,13 @@ describe("isOk function", () => {
     expect(isOk(response.status)).toBe(true);
   });
 
+  it("throws BadRequest error if status is 400 Bad Request", () => {
+    const invalidCall = () => {
+      isOk(400);
+    };
+    expect(invalidCall).toThrow(ErrorText.BadRequest);
+  });
+
   it("throws InvalidApiKey error if status is 401 Unauthorized", () => {
     const invalidCall = () => {
       isOk(401);
@@ -21,9 +28,9 @@ describe("isOk function", () => {
     expect(invalidCall).toThrow(ErrorText.CityNotFound);
   });
 
-  it("throws generic ClientError if status code starts with 4", () => {
+  it("throws generic ClientError if status code starts with 4, but doesn't belong to known errors", () => {
     const invalidCall = () => {
-      isOk(400);
+      isOk(403);
     };
     expect(invalidCall).toThrow(ErrorText.ClientError);
   });
