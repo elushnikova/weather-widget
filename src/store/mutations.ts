@@ -50,7 +50,7 @@ const mutations = {
   },
 
   sortWeatherList({ weatherList, locationList }: StateInterface): void {
-    const byLocationOrder = (a: any, b: any) =>
+    const byLocationOrder = (a: Weather, b: Weather) =>
       locationList.indexOf(a.location) - locationList.indexOf(b.location);
 
     weatherList.sort(byLocationOrder);
