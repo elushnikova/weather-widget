@@ -30,8 +30,12 @@ export default Vue.extend({
   transition: background-color 300ms;
 
   &:focus {
-    background-color: lightgrey;
     outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: lightgrey;
   }
 }
 
