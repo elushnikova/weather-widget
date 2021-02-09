@@ -29,7 +29,7 @@ describe("SettingsCard.vue", () => {
     expect(wrapperVmAsAny.locationList.length).toBe(1);
     wrapperVmAsAny.locationList = [];
 
-    expect(spy).toHaveBeenCalledWith("setLocationList", []);
+    expect(spy).toHaveBeenCalledWith("setList", []);
     spy.mockRestore();
   });
 });

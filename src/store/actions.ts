@@ -14,27 +14,27 @@ const actions = {
     commit("removeWeather", location);
   },
 
-  setLocationList(
-    { state, commit }: ActionContext<StateInterface, StateInterface>,
+  setList(
+    { getters, commit }: ActionContext<StateInterface, StateInterface>,
     locationList: string[]
   ) {
-    const weatherList = state.list;
-    weatherList.sort((a: any, b: any) => {
+    getters.weatherList.sort((a: any, b: any) => {
       return (
         locationList.indexOf(a.location) - locationList.indexOf(b.location)
       );
     });
 
     commit("setLocationList", locationList);
-    commit("setList", weatherList);
+    /** @fixme Why set again after sorting in place? */
+    commit("setWeatherList", getters.weatherList);
   },
 
-  searchWeather(
+  searchLocation(
     { commit, dispatch }: ActionContext<StateInterface, StateInterface>,
     location: string
   ): Promise<any> {
     return new Promise((resolve, reject) => {
-      dispatch("fetch", location)
+      dispatch("fetchWeather", location)
         .then((weather: Weather) => {
           commit("addLocation", weather.location);
           resolve(weather.location);
@@ -45,7 +45,7 @@ const actions = {
     });
   },
 
-  fetch(
+  fetchWeather(
     { getters, commit }: ActionContext<StateInterface, StateInterface>,
     location: string
   ): Promise<any> {

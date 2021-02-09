@@ -46,7 +46,7 @@ export default Vue.extend({
   methods: {
     async handleSubmit() {
       await this.$store
-        .dispatch("searchWeather", this.location)
+        .dispatch("searchLocation", this.location)
         .then(() => {
           this.showFeedback("Added successfully");
           this.clearInput();

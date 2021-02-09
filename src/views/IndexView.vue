@@ -69,7 +69,7 @@ export default Vue.extend({
   async created() {
     await this.locationList.forEach(async (location: string) => {
       this.removeDuplicate(location);
-      await this.$store.dispatch("fetch", location);
+      await this.$store.dispatch("fetchWeather", location);
     });
   }
 });

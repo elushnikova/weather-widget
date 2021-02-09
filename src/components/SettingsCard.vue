@@ -49,7 +49,7 @@ export default Vue.extend({
       },
 
       async set(value) {
-        await this.$store.dispatch("setLocationList", value);
+        await this.$store.dispatch("setList", value);
       }
     }
   }

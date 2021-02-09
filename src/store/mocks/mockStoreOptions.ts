@@ -11,7 +11,7 @@ const mockState: StateInterface = {
   locationList: [mockWeather.location],
 };
 const mockActions = {
-  searchWeather(): void {
+  searchLocation(): void {
     return;
   },
 };

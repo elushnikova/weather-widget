@@ -8,9 +8,9 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 const mockStore = new Vuex.Store({ ...mockStoreOptions, actions });
 
-describe("actions.searchWeather", () => {
+describe("actions.searchLocation", () => {
   it("returns Promise object", () => {
-    const result = mockStore.dispatch("searchWeather", "TEST LOCATION");
+    const result = mockStore.dispatch("searchLocation", "TEST LOCATION");
     const isPromise = Promise.resolve(result) === result;
     expect(isPromise).toBe(true);
   });

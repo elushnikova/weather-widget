@@ -4,11 +4,7 @@ import StateInterface from "@/types/interfaces/StateInterface";
 import ErrorText from "@/assets/ErrorText";
 
 const mutations = {
-  setKey(state: StateInterface, apiKey: string): void {
-    state.apiKey = apiKey;
-  },
-
-  setList(state: StateInterface, list: Weather[]): void {
+  setWeatherList(state: StateInterface, list: Weather[]): void {
     Vue.set(state, "list", [...list]);
   },
 
