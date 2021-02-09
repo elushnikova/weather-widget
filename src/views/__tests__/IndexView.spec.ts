@@ -1,7 +1,6 @@
 import { createLocalVue, shallowMount, Wrapper } from "@vue/test-utils";
 import Vuex from "vuex";
 import IndexView from "@/views/IndexView.vue";
-import WeatherEmptyCard from "@/components/WeatherEmptyCard.vue";
 import mockStoreOptions from "@/store/mocks/mockStoreOptions";
 
 describe("IndexView.vue", () => {
@@ -23,9 +22,8 @@ describe("IndexView.vue", () => {
     wrapper.destroy();
   });
 
-  it("renders WeatherEmptyCard, if state.weatherList is empty", async () => {
-    const emptyCard = wrapper.findComponent(WeatherEmptyCard);
-    expect(mockStore.state.weatherList.length).toBe(0);
-    expect(emptyCard.exists()).toBe(true);
+  it("dispatches fetchWeather action for each location", async () => {
+    expect((wrapper.vm as any).locationList.length).toBe(1);
+    expect(mockStoreOptions.actions.fetchWeather).toHaveBeenCalledTimes(1);
   });
 });

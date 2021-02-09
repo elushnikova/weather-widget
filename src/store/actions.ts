@@ -15,18 +15,11 @@ const actions = {
   },
 
   setList(
-    { getters, commit }: ActionContext<StateInterface, StateInterface>,
+    { commit }: ActionContext<StateInterface, StateInterface>,
     locationList: string[]
   ) {
-    getters.weatherList.sort((a: any, b: any) => {
-      return (
-        locationList.indexOf(a.location) - locationList.indexOf(b.location)
-      );
-    });
-
     commit("setLocationList", locationList);
-    /** @fixme Why set again after sorting in place? */
-    commit("setWeatherList", getters.weatherList);
+    commit("sortWeatherList");
   },
 
   searchLocation(

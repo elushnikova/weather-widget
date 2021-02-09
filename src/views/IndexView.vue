@@ -27,7 +27,6 @@ import WeatherCard from "@/components/WeatherCard.vue";
 import WeatherEmptyCard from "@/components/WeatherEmptyCard.vue";
 
 import IconSlug from "@/assets/IconSlug";
-import Weather from "@/classes/Weather";
 
 export default Vue.extend({
   name: "IndexView",
@@ -55,22 +54,17 @@ export default Vue.extend({
   },
 
   methods: {
-    removeDuplicate(location: string): void {
-      const isDuplicate = this.weatherList.find(
-        (item: Weather) => item.location === location
-      );
+    processLocationList() {
+      this.locationList.forEach(this.fetchWeather);
+    },
 
-      if (isDuplicate) {
-        this.$store.commit("removeWeather", location);
-      }
+    async fetchWeather(location: string) {
+      await this.$store.dispatch("fetchWeather", location);
     }
   },
 
-  async created() {
-    await this.locationList.forEach(async (location: string) => {
-      this.removeDuplicate(location);
-      await this.$store.dispatch("fetchWeather", location);
-    });
+  created() {
+    this.processLocationList();
   }
 });
 </script>

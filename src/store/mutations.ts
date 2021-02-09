@@ -48,6 +48,13 @@ const mutations = {
 
     state.locationList.splice(index, 1);
   },
+
+  sortWeatherList({ weatherList, locationList }: StateInterface): void {
+    const byLocationOrder = (a: any, b: any) =>
+      locationList.indexOf(a.location) - locationList.indexOf(b.location);
+
+    weatherList.sort(byLocationOrder);
+  },
 };
 
 export default mutations;
