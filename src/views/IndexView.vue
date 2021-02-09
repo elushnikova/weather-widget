@@ -27,7 +27,6 @@ import WeatherCard from "@/components/WeatherCard.vue";
 import WeatherEmptyCard from "@/components/WeatherEmptyCard.vue";
 
 import IconSlug from "@/assets/IconSlug";
-import ApiInputInterface from "@/types/interfaces/ApiInputInterface";
 import Weather from "@/classes/Weather";
 
 export default Vue.extend({
@@ -52,17 +51,10 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapGetters(["weatherList", "locationList", "apiKey"])
+    ...mapGetters(["weatherList", "locationList"])
   },
 
   methods: {
-    composeInput(location: string): ApiInputInterface {
-      return {
-        apiKey: this.apiKey,
-        location
-      };
-    },
-
     removeDuplicate(location: string): void {
       const isDuplicate = this.weatherList.find(
         (item: Weather) => item.location === location
@@ -77,8 +69,7 @@ export default Vue.extend({
   async created() {
     await this.locationList.forEach(async (location: string) => {
       this.removeDuplicate(location);
-      const input = this.composeInput(location);
-      await this.$store.dispatch("fetch", input);
+      await this.$store.dispatch("fetch", location);
     });
   }
 });

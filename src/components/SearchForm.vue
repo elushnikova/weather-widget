@@ -26,7 +26,6 @@ import AppBtn from "@/components/AppBtn.vue";
 import AppIcon from "@/components/AppIcon.vue";
 
 import IconSlug from "@/assets/IconSlug";
-import ApiInputInterface from "@/types/interfaces/ApiInputInterface";
 
 export default Vue.extend({
   name: "SearchForm",
@@ -44,19 +43,10 @@ export default Vue.extend({
     };
   },
 
-  computed: {
-    input(): ApiInputInterface {
-      return {
-        apiKey: this.$store.getters.apiKey,
-        location: this.location
-      };
-    }
-  },
-
   methods: {
     async handleSubmit() {
       await this.$store
-        .dispatch("fetchWeather", this.input)
+        .dispatch("searchWeather", this.location)
         .then(() => {
           this.showFeedback("Added successfully");
           this.clearInput();

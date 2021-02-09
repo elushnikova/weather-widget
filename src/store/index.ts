@@ -10,7 +10,7 @@ import StateInterface from "@/types/interfaces/StateInterface";
 Vue.use(Vuex);
 
 const state: StateInterface = {
-  apiKey: "",
+  apiKey: "d685c708cd4f9709928c921bec3bd482",
   list: [],
   locationList: JSON.parse(window.localStorage.getItem(STORAGE_KEY) || "[]"),
 };

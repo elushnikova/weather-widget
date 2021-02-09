@@ -16,7 +16,6 @@ describe("App.vue", () => {
     wrapper = shallowMount(App, {
       localVue,
       store: mockStore,
-      propsData: { apiKey: "TEST KEY" },
     });
   });
 

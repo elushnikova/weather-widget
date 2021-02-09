@@ -1,7 +1,6 @@
 import { ActionContext } from "vuex";
 import Weather from "@/classes/Weather";
 import StateInterface from "@/types/interfaces/StateInterface";
-import ApiInputInterface from "@/types/interfaces/ApiInputInterface";
 import parse from "@/store/utils/parse";
 import createWeatherObject from "@/store/utils/createWeatherObject";
 import composeUrl from "@/store/utils/composeUrl";
@@ -30,12 +29,12 @@ const actions = {
     commit("setList", weatherList);
   },
 
-  fetchWeather(
+  searchWeather(
     { commit, dispatch }: ActionContext<StateInterface, StateInterface>,
-    input: ApiInputInterface
+    location: string
   ): Promise<any> {
     return new Promise((resolve, reject) => {
-      dispatch("fetch", input)
+      dispatch("fetch", location)
         .then((weather: Weather) => {
           commit("addLocation", weather.location);
           resolve(weather.location);
@@ -47,10 +46,10 @@ const actions = {
   },
 
   fetch(
-    { commit }: ActionContext<StateInterface, StateInterface>,
-    input: ApiInputInterface
+    { getters, commit }: ActionContext<StateInterface, StateInterface>,
+    location: string
   ): Promise<any> {
-    const url = composeUrl(input);
+    const url = composeUrl(location, getters.apiKey);
     return new Promise((resolve, reject) => {
       fetch(url)
         .then(parse)

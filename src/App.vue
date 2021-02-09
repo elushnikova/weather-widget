@@ -30,19 +30,8 @@ export default Vue.extend({
 
   data() {
     return {
-      showSettings: false,
-      apiKey: "d685c708cd4f9709928c921bec3bd482"
+      showSettings: false
     };
-  },
-
-  methods: {
-    setKey() {
-      this.$store.commit("setKey", this.apiKey);
-    }
-  },
-
-  created() {
-    this.setKey();
   }
 });
 </script>
