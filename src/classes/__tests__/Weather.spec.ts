@@ -28,7 +28,7 @@ describe("Weather", () => {
 
   it("composes image url from weather icon code", () => {
     const iconCode = weatherItem.weather[0].icon;
-    const expected = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    const expected = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
     expect(w.image).toBe(expected);
   });
 
