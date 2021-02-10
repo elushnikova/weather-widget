@@ -1,5 +1,5 @@
-import WeatherApiInterface from "@/types/interfaces/WeatherApiInterface";
-import WeatherInterface from "@/types/interfaces/WeatherInterface";
+import WeatherApiInterface from "@/interfaces/WeatherApiInterface";
+import WeatherInterface from "@/interfaces/WeatherInterface";
 
 import CelsiusTemperature from "@/classes/CelsiusTemperature";
 import Humidity from "@/classes/Humidity";

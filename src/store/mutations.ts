@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Weather from "@/classes/Weather";
-import StateInterface from "@/types/interfaces/StateInterface";
+import StateInterface from "@/interfaces/StateInterface";
 import ErrorText from "@/assets/ErrorText";
 
 const mutations = {

@@ -5,7 +5,7 @@ import getters from "@/store/getters";
 import mutations from "@/store/mutations";
 import plugins from "@/store/plugins";
 import STORAGE_KEY from "@/store/utils/storageKey";
-import StateInterface from "@/types/interfaces/StateInterface";
+import StateInterface from "@/interfaces/StateInterface";
 
 Vue.use(Vuex);
 

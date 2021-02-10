@@ -1,6 +1,6 @@
 import DistanceUnit from "@/assets/units/DistanceUnit";
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
-import VisibilityInterface from "@/types/interfaces/quantities/VisibilityInterface";
+import VisibilityInterface from "@/interfaces/quantities/VisibilityInterface";
 
 class Visibility extends PhysicalQuantity implements VisibilityInterface {
   constructor(value: number) {

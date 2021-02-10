@@ -1,4 +1,4 @@
-import PhysicalQuantityInterface from "@/types/interfaces/quantities/PhysicalQuantityInterface";
+import PhysicalQuantityInterface from "@/interfaces/quantities/PhysicalQuantityInterface";
 import PressureUnit from "@/assets/units/PressureUnit";
 
 interface PressureInterface extends PhysicalQuantityInterface {

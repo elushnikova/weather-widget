@@ -2,7 +2,7 @@ import BeaufortScale from "@/assets/BeaufortScale";
 import ErrorText from "@/assets/ErrorText";
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
 import SpeedUnit from "@/assets/units/SpeedUnit";
-import WindSpeedInterface from "@/types/interfaces/quantities/WindSpeedInterface";
+import WindSpeedInterface from "@/interfaces/quantities/WindSpeedInterface";
 
 class WindSpeed extends PhysicalQuantity implements WindSpeedInterface {
   constructor(value: number) {

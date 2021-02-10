@@ -1,7 +1,7 @@
 import getters from "@/store/getters";
 import Weather from "@/classes/Weather";
 import weatherItem from "@/classes/mocks/weatherItem";
-import StateInterface from "@/types/interfaces/StateInterface";
+import StateInterface from "@/interfaces/StateInterface";
 
 const mockWeather = new Weather(weatherItem);
 const state: StateInterface = {

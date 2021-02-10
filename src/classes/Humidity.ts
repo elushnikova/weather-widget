@@ -1,5 +1,5 @@
 import ErrorText from "@/assets/ErrorText";
-import HumidityInterface from "@/types/interfaces/quantities/HumidityInterface";
+import HumidityInterface from "@/interfaces/quantities/HumidityInterface";
 import HumidityUnit from "@/assets/units/HumidityUnit";
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
 

@@ -1,7 +1,7 @@
 import mutations from "@/store/mutations";
 import Weather from "@/classes/Weather";
 import weatherItem from "@/classes/mocks/weatherItem";
-import StateInterface from "@/types/interfaces/StateInterface";
+import StateInterface from "@/interfaces/StateInterface";
 import ErrorText from "@/assets/ErrorText";
 
 const mockW1 = new Weather(weatherItem);

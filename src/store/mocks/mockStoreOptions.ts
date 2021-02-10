@@ -3,7 +3,7 @@ import Weather from "@/classes/Weather";
 import actions from "@/store/actions";
 import getters from "@/store/getters";
 import mutations from "@/store/mutations";
-import StateInterface from "@/types/interfaces/StateInterface";
+import StateInterface from "@/interfaces/StateInterface";
 
 const mockWeather = new Weather(weatherItem);
 const mockState: StateInterface = {

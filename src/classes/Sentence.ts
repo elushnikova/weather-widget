@@ -1,4 +1,4 @@
-import SentenceInterface from "@/types/interfaces/SentenceInterface";
+import SentenceInterface from "@/interfaces/SentenceInterface";
 
 class Sentence implements SentenceInterface {
   text: string;

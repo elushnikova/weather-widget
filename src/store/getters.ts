@@ -1,5 +1,5 @@
 import Weather from "@/classes/Weather";
-import StateInterface from "@/types/interfaces/StateInterface";
+import StateInterface from "@/interfaces/StateInterface";
 
 const getters = {
   apiKey(state: StateInterface): string {

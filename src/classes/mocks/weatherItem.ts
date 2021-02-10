@@ -1,4 +1,4 @@
-import WeatherApiInterface from "@/types/interfaces/WeatherApiInterface";
+import WeatherApiInterface from "@/interfaces/WeatherApiInterface";
 
 const weatherItem: WeatherApiInterface = {
   coord: {

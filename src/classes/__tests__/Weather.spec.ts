@@ -2,7 +2,7 @@ import Weather from "@/classes/Weather";
 import weatherItem from "@/classes/mocks/weatherItem";
 import TemperatureUnit from "@/assets/units/TemperatureUnit";
 import DistanceUnit from "@/assets/units/DistanceUnit";
-import WeatherApiInterface from "@/types/interfaces/WeatherApiInterface";
+import WeatherApiInterface from "@/interfaces/WeatherApiInterface";
 
 function lossyDeepClone(item: any) {
   return JSON.parse(JSON.stringify(item));

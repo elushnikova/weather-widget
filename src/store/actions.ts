@@ -1,6 +1,6 @@
 import { ActionContext } from "vuex";
 import Weather from "@/classes/Weather";
-import StateInterface from "@/types/interfaces/StateInterface";
+import StateInterface from "@/interfaces/StateInterface";
 import parse from "@/store/utils/parse";
 import createWeatherObject from "@/store/utils/createWeatherObject";
 import composeUrl from "@/store/utils/composeUrl";
