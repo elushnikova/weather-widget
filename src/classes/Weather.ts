@@ -7,6 +7,7 @@ import Pressure from "@/classes/Pressure";
 import Sentence from "@/classes/Sentence";
 import Temperature from "@/classes/Temperature";
 import Visibility from "@/classes/Visibility";
+import WeatherIconUrl from "@/classes/url/WeatherIconUrl";
 import WindSpeed from "@/classes/WindSpeed";
 
 import TemperatureUnit from "@/assets/units/TemperatureUnit";
@@ -28,9 +29,11 @@ class Weather implements WeatherInterface {
   visibility: Visibility;
 
   constructor(item: WeatherApiInterface) {
+    const u = new WeatherIconUrl(item.weather[0].icon);
+
     this.cityId = item.id;
     this.location = item.name + ", " + item.sys.country;
-    this.image = `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
+    this.image = u.fullUrl();
     this.name = item.weather[0].main;
 
     const descriptionSentence = new Sentence(item.weather[0].description);
