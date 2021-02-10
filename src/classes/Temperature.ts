@@ -1,5 +1,5 @@
 import PhysicalQuantity from "@/classes/PhysicalQuantity";
-import TemperatureInterface from "@/types/interfaces/TemperatureInterface";
+import TemperatureInterface from "@/types/interfaces/quantities/TemperatureInterface";
 import TemperatureUnit from "@/assets/units/TemperatureUnit";
 
 class Temperature extends PhysicalQuantity implements TemperatureInterface {

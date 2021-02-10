@@ -1,4 +1,4 @@
-import PhysicalQuantityInterface from "@/types/interfaces/PhysicalQuantityInterface";
+import PhysicalQuantityInterface from "@/types/interfaces/quantities/PhysicalQuantityInterface";
 
 abstract class PhysicalQuantity implements PhysicalQuantityInterface {
   unit: any;
