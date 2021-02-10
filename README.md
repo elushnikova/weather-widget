@@ -26,12 +26,6 @@ npm run build
 npm run test
 ```
 
-or
-
-```
-npm run test:unit
-```
-
 ### Lints and fixes files
 ```
 npm run lint
