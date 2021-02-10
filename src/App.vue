@@ -47,5 +47,9 @@ export default Vue.extend({
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  ul {
+    padding-inline-start: 0;
+  }
 }
 </style>
