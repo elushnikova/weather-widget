@@ -72,7 +72,6 @@ describe("mutations.removeWeather", () => {
 
 function setupState() {
   state = {
-    apiKey: "",
     weatherList: [mockW1, mockW2, mockW3],
     locationList: [mockW1.location, mockW2.location, mockW3.location],
   };

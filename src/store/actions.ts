@@ -3,7 +3,7 @@ import Weather from "@/classes/Weather";
 import StateInterface from "@/interfaces/StateInterface";
 import parse from "@/store/utils/parse";
 import createWeatherObject from "@/store/utils/createWeatherObject";
-import composeUrl from "@/store/utils/composeUrl";
+import ApiLocationUrl from "@/classes/url/ApiLocationUrl";
 
 const actions = {
   remove(
@@ -39,12 +39,12 @@ const actions = {
   },
 
   fetchWeather(
-    { getters, commit }: ActionContext<StateInterface, StateInterface>,
+    { commit }: ActionContext<StateInterface, StateInterface>,
     location: string
   ): Promise<any> {
-    const url = composeUrl(location, getters.apiKey);
+    const u = new ApiLocationUrl(location);
     return new Promise((resolve, reject) => {
-      fetch(url)
+      fetch(u.fullUrl())
         .then(parse)
         .then(createWeatherObject)
         .then((weather: Weather) => {

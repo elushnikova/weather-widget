@@ -5,7 +5,6 @@ import StateInterface from "@/interfaces/StateInterface";
 
 const mockWeather = new Weather(weatherItem);
 const state: StateInterface = {
-  apiKey: "",
   weatherList: [mockWeather],
   locationList: [mockWeather.location]
 };
