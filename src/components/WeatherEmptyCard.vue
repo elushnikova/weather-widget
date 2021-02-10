@@ -1,11 +1,19 @@
 <template>
   <app-card>
-    <app-card-title>
-      No location
-    </app-card-title>
+    <app-card-title> No location </app-card-title>
 
     <app-card-content>
-      <p>Please, open Settings to add your location.</p>
+      <p>
+        Please, click the button below or open Settings to add your location.
+      </p>
+
+      <button @click="$emit('share-location')">Share my location</button>
+
+      <transition name="fade">
+        <p v-if="error" class="ww-error">
+          {{ error }}
+        </p>
+      </transition>
     </app-card-content>
   </app-card>
 </template>
@@ -20,6 +28,10 @@ import AppCardTitle from "@/components/AppCardTitle.vue";
 export default Vue.extend({
   name: "WeatherEmptyCard",
 
+  props: {
+    error: { type: String, default: "" }
+  },
+
   components: {
     AppCard,
     AppCardTitle,
@@ -27,3 +39,21 @@ export default Vue.extend({
   }
 });
 </script>
+
+<style lang="scss">
+.ww-error {
+  color: red;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-property: opacity;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in-out;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

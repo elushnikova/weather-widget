@@ -14,6 +14,8 @@ const mockActions: typeof actions = {
   remove: jest.fn(),
   setList: jest.fn(),
   searchLocation: jest.fn().mockResolvedValue(mockWeather.location),
+  fetchByLocation: jest.fn().mockResolvedValue(mockWeather),
+  fetchByCoords: jest.fn(),
   fetchWeather: jest.fn().mockResolvedValue(mockWeather),
 };
 

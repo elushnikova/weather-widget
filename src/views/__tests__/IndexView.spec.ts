@@ -22,8 +22,8 @@ describe("IndexView.vue", () => {
     wrapper.destroy();
   });
 
-  it("dispatches fetchWeather action for each location", async () => {
+  it("dispatches fetchByLocation action for each location", async () => {
     expect((wrapper.vm as any).locationList.length).toBe(1);
-    expect(mockStoreOptions.actions.fetchWeather).toHaveBeenCalledTimes(1);
+    expect(mockStoreOptions.actions.fetchByLocation).toHaveBeenCalledTimes(1);
   });
 });

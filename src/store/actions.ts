@@ -4,6 +4,8 @@ import StateInterface from "@/interfaces/StateInterface";
 import parse from "@/store/utils/parse";
 import createWeatherObject from "@/store/utils/createWeatherObject";
 import ApiLocationUrl from "@/classes/url/ApiLocationUrl";
+import ApiCoordsUrl from "@/classes/url/ApiCoordsUrl";
+import ApiCoordsType from "@/types/ApiCoordsType";
 
 const actions = {
   remove(
@@ -25,9 +27,9 @@ const actions = {
   searchLocation(
     { commit, dispatch }: ActionContext<StateInterface, StateInterface>,
     location: string
-  ): Promise<any> {
+  ): Promise<string> {
     return new Promise((resolve, reject) => {
-      dispatch("fetchWeather", location)
+      dispatch("fetchByLocation", location)
         .then((weather: Weather) => {
           commit("addLocation", weather.location);
           resolve(weather.location);
@@ -38,13 +40,47 @@ const actions = {
     });
   },
 
-  fetchWeather(
-    { commit }: ActionContext<StateInterface, StateInterface>,
+  /** @fixme Merge with searchLocation */
+  fetchByLocation(
+    { dispatch }: ActionContext<StateInterface, StateInterface>,
     location: string
-  ): Promise<any> {
+  ): Promise<Weather> {
     const u = new ApiLocationUrl(location);
     return new Promise((resolve, reject) => {
-      fetch(u.fullUrl())
+      dispatch("fetchWeather", u.fullUrl())
+        .then((weather: Weather) => {
+          resolve(weather);
+        })
+        .catch((error: Error) => {
+          reject(error);
+        });
+    });
+  },
+
+  /** @todo Rename to searchCoords */
+  fetchByCoords(
+    { commit, dispatch }: ActionContext<StateInterface, StateInterface>,
+    coords: ApiCoordsType
+  ): Promise<void> {
+    const u = new ApiCoordsUrl(coords);
+    return new Promise((resolve, reject) => {
+      dispatch("fetchWeather", u.fullUrl())
+        .then((weather: Weather) => {
+          commit("addLocation", weather.location);
+          resolve();
+        })
+        .catch((error: Error) => {
+          reject(error);
+        });
+    });
+  },
+
+  fetchWeather(
+    { commit }: ActionContext<StateInterface, StateInterface>,
+    url: string
+  ): Promise<Weather> {
+    return new Promise((resolve, reject) => {
+      fetch(url)
         .then(parse)
         .then(createWeatherObject)
         .then((weather: Weather) => {

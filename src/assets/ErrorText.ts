@@ -20,6 +20,9 @@ enum ErrorText {
   // Store errors
   ItemIsDuplicate = "Already in the list",
   ItemNotFound = "No such item in the list",
+
+  // Other errors
+  NoGeolocation = "Geolocation is not supported",
 }
 
 export default ErrorText;
